@@ -1,0 +1,16 @@
+service livestatus {
+    type = UNLISTED
+    port = 6557
+    socket_type = stream
+    protocol = tcp
+    wait = no
+    cps = 100 3
+    instances = 500
+    per_source = 250
+    flags = NODELAY
+    user = nagios
+    server = /opt/omd/versions/1.20/bin/unixcat
+    server_args = /omd/sites/master/tmp/run/live
+    only_from = 127.0.0.1
+    disable = no
+}
