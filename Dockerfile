@@ -1,6 +1,8 @@
+## -*- docker-image-name: omd" -*-
+
 FROM ubuntu:14.04
 RUN echo 'Acquire::http::Proxy "http://192.168.1.100:3142";' > /etc/apt/apt.conf.d/proxy 
-RUN apt-get update
+RUN apt-get update || true
 
 RUN apt-get install -y supervisor wget
 RUN wget http://files.omdistro.org/releases/debian_ubuntu/omd-1.20.trusty.amd64.deb
